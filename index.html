@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Brewery Finder</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+    <!-- endbower -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="animate.css"></link>
+    <link rel="stylesheet" href="styles.css"></link>
+    <link rel="stylesheet" href="hint.css"></link>
+    <!-- endinject -->
+</head>
+
+<body ng-controller="BreweryController as vm">
+    <div class="container">
+        <center>
+            <header>
+                <h1>Breweries of San Diego</h1>
+                <u><h4>Your SD Brewery tour guide!</h4></u>
+            </header>
+        </center>
+        <!--  Dropdown menu  -->
+        <div class="form-group text-center">
+            <div>
+                <label>
+                    <h5> Find a Brewery!</h5>
+                </label>
+                <select ng-model="vm.selectedItem" ng-options="item as item.brewery.name for item in vm.breweryData">
+                </select>
+            </div>
+            <!-- Clear button -->
+            <div class="imagehover">
+                <button ng-click="vm.getBrewery(vm.breweryname)" class="animated infinite pulse"><img id="brew" src="imgs/Beer-Icon-2.png" alt="clearSearch">
+                    <p>MORE BEER</p>
+                </button>
+            </div>
+        </div>
+        <!-- Brewery Results -->
+        <div id="brewtable" class=col-xs-12>
+            <div class="panel panel-info animated fadeInRightBig">
+                <div id=brewDetails class=" lead panel-heading">Brewery Details:</div>
+                <div class="panel-body">
+                    <table class="table table-hover table-inverse col-xs-12" id="mainTable">
+                        <thead>
+                            <tr>
+                                <th id="details" class="lead">Breweries in San Diego: </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{vm.selectedItem.brewery.description}}</td>
+                            </tr>
+                            <br>
+                            <!--  Brewery Hyperlink -->
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <a target="_blank" ng-href="{{vm.selectedItem.brewery.website}}">{{vm.selectedItem.brewery.website}}</a>
+                                    </div>
+                                    <br>
+                                    <!--  Maps link -->
+                                    <div class="text-center">
+                                        <a target="_blank" href="https://www.google.com/maps?q={{vm.selectedItem.latitude}},{{vm.selectedItem.longitude}}" ng-click="getBrewery">
+                                            <button type=button class='btn btn-primary'>Open in Google Maps
+                                            </button>
+                                    </div </div>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jquery-3.1.0.min/index.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <!-- endbower -->
+    <!-- inject:js -->
+    <script src="/app/style/app.js"></script>
+    <script src="/app/style/brewery.controller.js"></script>
+    <script src="/app/style/brewery.factory.js"></script>
+    <!-- endinject -->
+</body>
+
+</html>

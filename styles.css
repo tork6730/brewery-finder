@@ -1,0 +1,55 @@
+body {
+    background-image: url("imgs/astrobrew.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-image: cover;
+}
+
+h1,
+h4,
+h5,
+u {
+    color: powderblue;
+    opacity: 0.99;
+}
+
+#brew {
+    height: 48px;
+    width: 50px;
+}
+
+.imagehover p {
+    color: #357Ec7;
+}
+
+.imagehover p:hover {
+    color: #000;
+}
+
+button {
+    border-radius: 30%;
+    color: #000;
+}
+
+panel-background {
+    opacity: 0.3;
+}
+
+#mainTable {
+    opacity: 0.5;
+    color: dodgerblue;
+}
+
+#brewtable {
+    opacity: 0.99;
+    color: dodgerblue;
+}
+
+#details {
+    color: windowsblue;
+}
+
+#brewDetails {
+    color: dodgerblue;
+}
