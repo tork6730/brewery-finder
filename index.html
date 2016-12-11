@@ -12,18 +12,15 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="animate.css"></link>
     <link rel="stylesheet" href="styles.css"></link>
-    <link rel="stylesheet" href="hint.css"></link>
     <!-- endinject -->
 </head>
 
 <body ng-controller="BreweryController as vm">
     <div class="container">
-        <center>
-            <header>
-                <h1>Breweries of San Diego</h1>
-                <u><h4>Your SD Brewery tour guide!</h4></u>
-            </header>
-        </center>
+        <header class="text-center">
+            <h1>Breweries of San Diego</h1>
+            <u><h4>Your SD Brewery tour guide!</h4></u>
+        </header>
         <!--  Dropdown menu  -->
         <div class="form-group text-center">
             <div>
@@ -32,12 +29,6 @@
                 </label>
                 <select ng-model="vm.selectedItem" ng-options="item as item.brewery.name for item in vm.breweryData">
                 </select>
-            </div>
-            <!-- Clear button -->
-            <div class="imagehover">
-                <button ng-click="vm.getBrewery(vm.breweryname)" class="animated infinite pulse"><img id="brew" src="imgs/Beer-Icon-2.png" alt="clearSearch">
-                    <p>MORE BEER</p>
-                </button>
             </div>
         </div>
         <!-- Brewery Results -->
@@ -68,14 +59,19 @@
                                         <a target="_blank" href="https://www.google.com/maps?q={{vm.selectedItem.latitude}},{{vm.selectedItem.longitude}}" ng-click="getBrewery">
                                             <button type=button class='btn btn-primary'>Open in Google Maps
                                             </button>
-                                    </div </div>
+                                    </div>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- Clear button -->
+        <div class="imagehover text-center">
+            <button ng-click="vm.getBrewery(vm.breweryname)" class="animated infinite pulse"><img id="brew" src="imgs/Beer-Icon-2.png" alt="clearSearch">
+                <p>MORE BEER</p>
+            </button>
+        </div>
     </div>
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
